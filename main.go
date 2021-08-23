@@ -35,11 +35,17 @@ func faq(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	var err error
-	homeTempalte, err = template.ParseFiles("views/home.gohtml")
+	homeTempalte, err = template.ParseFiles(
+		"views/home.gohtml",
+		"views/Layouts/footer.gohtml",
+	)
 	if err != nil {
 		panic(err)
 	}
-	contactTemplate, err = template.ParseFiles("views/contact.gohtml")
+	contactTemplate, err = template.ParseFiles(
+		"views/contact.gohtml",
+		"views/Layouts/footer.gohtml",
+	)
 	if err != nil {
 		panic(err)
 	}
