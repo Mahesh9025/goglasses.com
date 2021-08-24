@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"goglasses.com/m/v0/controllers"
 	"goglasses.com/m/v0/views"
 )
 
@@ -25,9 +26,12 @@ func contact(w http.ResponseWriter, r *http.Request) {
 func main() {
 	homeView = views.NewView("bootstrap", "views/home.gohtml")
 	contactView = views.NewView("bootstrap", "views/contact.gohtml")
+	usersController := controllers.NewUsers()
+
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
+	r.HandleFunc("/signup", usersController.New)
 	http.ListenAndServe(":8525", r)
 }
 
