@@ -1,5 +1,7 @@
 {{define "yield"}}
-<div class="panel panel-default">
+<div class="row">
+   <div class="col-md-4 col-md-offset-4">
+<div class="panel panel-primary">
    <div class="panel-heading">
       <h3 class="panel-title">signup now</h3>
    </div>
@@ -7,10 +9,13 @@
       {{template "signupForm"}}
    </div>
 </div>
+</div>
+</div>
 {{end}}
 
 {{define "signupForm"}}
-<form>
+<form action="/signup" method="POST">
+
    <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control"
@@ -21,20 +26,10 @@
       <input type="password" class="form-control"
          id="exampleInputPassword1" placeholder="Password">
    </div>
-   <div class="form-group">
-      <label for="exampleInputFile">File input</label>
-      <input type="file" id="exampleInputFile">
-      <p class="help-block">
-         Example block-level help text here.
-      </p>
-   </div>
-   <div class="checkbox">
-      <label>
-      <input type="checkbox"> Check me out
-      </label>
-   </div>
-   <button type="submit" class="btn btn-default">
+   <div>
+   <button type="submit" class="btn btn-primary">
    Submit
    </button>
+   </div>
 </form>
 {{end}}
