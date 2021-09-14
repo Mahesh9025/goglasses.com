@@ -20,9 +20,17 @@ const (
 
 type User struct {
 	gorm.Model
-	Name  string
-	Email string `gorm:"not null;unique_index"`
-	Color string
+	Name   string
+	Email  string `gorm:"not null;unique_index"`
+	Color  string
+	Orders []Order
+}
+
+type Order struct {
+	gorm.Model
+	UserId      uint
+	Amount      int
+	Description string
 }
 
 func main() {
