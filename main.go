@@ -33,6 +33,8 @@ func main() {
 	r.Handle("/contact", staticController.Contact).Methods("GET")
 	r.HandleFunc("/signup", usersController.New).Methods("GET")
 	r.HandleFunc("/signup", usersController.Create).Methods("POST")
+	r.Handle("/login", usersController.LoginView).Methods("GET")
+	r.HandleFunc("/login", usersController.Login).Methods("POST")
 	fmt.Println("Starting the server on 8525")
 	http.ListenAndServe(":8525", r)
 }
